@@ -1,6 +1,8 @@
 #ifndef ROSA2_VM
 #define ROSA2_VM
 #include <stdint.h>
+#include "util.h"
+#include "opcodes.h"
 
 /* self explanatory */
 typedef enum {
@@ -46,7 +48,36 @@ typedef struct {
     int64_t irreg;
     char* srreg;
     double flrreg;
-    
+
+    /* instruction pointer */
+    uint64_t ip;
+
+    /* memory stacks */
+    int64_t* istack;
+    char** sstack;
+    double* dstack;
+
 } rosa2_memory;
+
+/* represents a single instruction */
+typedef struct {
+
+    rosa2_opcode opcode;
+    char** args;
+
+} rosa2_instruction;
+
+/* represents main vm data */
+typedef struct {
+
+    rosa2_memory* memory;
+    rosa2_instruction* code;
+
+} rosa2_vm_data;
+
+/* Creates empty rosa2_memory struct and returns pointer to it*/
+rosa2_memory* rosa2_create_empty_mem();
+/* creates basic vm data, returns pointer to it */
+rosa2_vm_data* rosa2_create_vm(rosa2_memory* memory, rosa2_instruction* code);
 
 #endif

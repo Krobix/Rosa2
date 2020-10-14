@@ -18,7 +18,8 @@ typedef enum {
     FLLOAD, //load a floating point number to the specified register
     DICTLOAD, //load specified dictionary entry to the register
     STRADD, //add two strings together and put them in return register
-    FLADD //add two floating point numbers together and add them to return register
+    FLADD, //add two floating point numbers together and add them to return register
+    HALT //halts the vm. crazy, i know
 } rosa2_opcode;
 
 #endif
