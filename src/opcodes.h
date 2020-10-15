@@ -12,14 +12,15 @@ typedef enum {
     FLSTORE, //push a floating point number to the stack
     DICTDEF, //define a variable dictionary entry
     STDOUT, //put in stdout
-    STDIN, //grab from stdin, put in defined register
-    STRLOAD, //load a string to specified register
-    INTLOAD, //load an int to specified register
-    FLLOAD, //load a floating point number to the specified register
-    DICTLOAD, //load specified dictionary entry to the register
+    STDIN, //grab from stdin, put in string return register
+    STRLOAD, //load a string to return register
+    INTLOAD, //load an int to return register
+    FLLOAD, //load a floating point number to the return register
+    DICTLOAD, //load specified dictionary entry to the return register
     STRADD, //add two strings together and put them in return register
     FLADD, //add two floating point numbers together and add them to return register
-    HALT //halts the vm. crazy, i know
+    HALT, //halts the vm. crazy, i know
+    MOV //move value from one register to another
 } rosa2_opcode;
 
 #endif
